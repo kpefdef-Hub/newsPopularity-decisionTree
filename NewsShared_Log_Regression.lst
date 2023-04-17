@@ -1,0 +1,457 @@
+*------------------------------------------------------------*
+User:                u63223071
+Date:                13 April 2023
+Time:                12:16:50
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+          Measurement    Frequency
+ Role        Level         Count
+ 
+INPUT      INTERVAL          3
+INPUT      NOMINAL           7
+TARGET     NOMINAL           1
+ 
+ 
+ 
+ 
+Model Events
+ 
+                                    Number
+                     Measurement      of
+ Target     Event       Level       Levels      Order       Label
+ 
+isShared     YES       NOMINAL         2      Descending
+ 
+ 
+ 
+ 
+Predicted and decision variables
+ 
+Type         Variable         Label
+ 
+TARGET       isShared
+PREDICTED    P_isSharedyes    Predicted: isShared=yes
+RESIDUAL     R_isSharedyes    Residual: isShared=yes
+PREDICTED    P_isSharedno     Predicted: isShared=no
+RESIDUAL     R_isSharedno     Residual: isShared=no
+FROM         F_isShared       From: isShared
+INTO         I_isShared       Into: isShared
+ 
+ 
+ 
+ 
+ 
+The DMREG Procedure
+ 
+                Model Information
+ 
+Training Data Set              WORK.EM_DMREG.VIEW
+DMDB Catalog                   WORK.REG_DMDB
+Target Variable                isShared
+Target Measurement Level       Nominal
+Number of Target Categories    2
+Error                          MBernoulli
+Link Function                  Logit
+Number of Model Parameters     20
+Number of Observations         18714
+ 
+ 
+          Target Profile
+ 
+ Ordered     is             Total
+   Value     Shared     Frequency
+ 
+       1     yes             4473
+       2     no             14241
+ 
+ 
+          Frequency Distribution of Input Class Variables
+ 
+                                        isShared
+ 
+Class          Value                  yes           no        Total
+ 
+browser        chrome                   7          149          156
+               edge                   219         1533         1752
+               firefox               4070        11974        16044
+               opera                  177          585          762
+ 
+channels       business               421          872         1293
+               entertainment          778         1379         2157
+               lifestyle              104          930         1034
+               news                   337          855         1192
+               sports                2833        10205        13038
+ 
+gender         Female                 706         5541         6247
+               Male                  3767         8700        12467
+ 
+imageLevel     blurred                100          567          667
+               high                   777           11          788
+               low                     57           39           96
+               noImage               3539        13624        17163
+ 
+isWeekend      no                    1781         9444        11225
+               yes                   2692         4797         7489
+ 
+relevancy      maybe                  418          503          921
+               no                    3381         4163         7544
+               yes                    674         9575        10249
+ 
+videos         high                  2631        11147        13778
+               low                   1128         1183         2311
+               medium                 714         1911         2625
+ 
+ 
+                     Descriptive Statistics for Continuous Variables
+ 
+                is                              Standard
+Variable        Shared             Mean        Deviation          Minimum          Maximum
+ 
+contentSize     yes              187628            99662            19023           953588
+                no               190398           106664            18827          1484705
+------------------------------------------------------------------------------------------
+                Total            189735           105037            18827          1484705
+ 
+readTime        yes            4.550861         1.100707         0.100000         9.900000
+                no             3.890197         1.238695         0.100000         9.900000
+------------------------------------------------------------------------------------------
+                Total          4.048108         1.239570         0.100000         9.900000
+ 
+titleCount      yes            4.472613         1.079250         2.000000         9.000000
+                no             3.733656         1.441138         2.000000         9.000000
+------------------------------------------------------------------------------------------
+                Total          3.910281         1.399330         2.000000         9.000000
+ 
+ 
+ 
+ 
+ 
+The DMREG Procedure
+ 
+Newton-Raphson Ridge Optimization
+ 
+Without Parameter Scaling
+ 
+Parameter Estimates              20
+ 
+                                             Optimization Start
+ 
+Active Constraints                                  0  Objective Function                       10291.697155
+Max Abs Gradient Element                 3353.5461686
+ 
+ 
+                                                                                                        Ratio
+                                                                                                      Between
+                                                                                                       Actual
+                                                                 Objective     Max Abs                    and
+                     Function         Active        Objective     Function    Gradient              Predicted
+Iter     Restarts       Calls    Constraints         Function       Change     Element     Ridge       Change
+ 
+   1            0           2              0             6878       3414.1       909.8         0        1.006
+   2            0           3              0             6483        394.6       194.0         0        1.180
+   3            0           4              0             6433      49.5177     29.0739         0        1.107
+   4            0           5              0             6432       1.7947      1.2698         0        1.042
+   5            0           6              0             6432       0.0117     0.00959         0        1.011
+   6            0           7              0             6432     3.452E-6    2.949E-6         0        1.000
+ 
+                                            Optimization Results
+ 
+Iterations                                          6  Function Calls                                      9
+Hessian Calls                                       7  Active Constraints                                  0
+Objective Function                       6431.6691577  Max Abs Gradient Element                 2.9486817E-6
+Ridge                                               0  Actual Over Pred Change                  1.0002193895
+ 
+Convergence criterion (GCONV=1E-6) satisfied.
+ 
+ 
+     Likelihood Ratio Test for Global Null Hypothesis: BETA=0
+ 
+     -2 Log Likelihood          Likelihood
+  Intercept     Intercept &          Ratio
+       Only      Covariates     Chi-Square       DF     Pr > ChiSq
+ 
+  20583.394       12863.338      7720.0560       19         <.0001
+ 
+ 
+          Type 3 Analysis of Effects
+ 
+                             Wald
+Effect           DF    Chi-Square    Pr > ChiSq
+ 
+browser           3       30.0985        <.0001
+channels          4      110.4276        <.0001
+contentSize       1        5.9583        0.0146
+gender            1       34.9506        <.0001
+imageLevel        3      408.0585        <.0001
+isWeekend         1      490.2980        <.0001
+readTime          1      285.4564        <.0001
+relevancy         2     1761.0560        <.0001
+titleCount        1      192.7925        <.0001
+videos            2      322.7155        <.0001
+ 
+ 
+                                                    Analysis of Maximum Likelihood Estimates
+ 
+                             is                          Standard          Wald                  Standardized                   95% Confidence
+Parameter                    Shared    DF    Estimate       Error    Chi-Square    Pr > ChiSq        Estimate    Exp(Est)           Limits
+ 
+Intercept                    yes        1     -2.1743      0.2105        106.73        <.0001                       0.114     -2.5868     -1.7618
+browser     chrome           yes        1     -1.0743      0.3525          9.29        0.0023                       0.342     -1.7652     -0.3835
+browser     edge             yes        1      0.1107      0.1392          0.63        0.4262                       1.117     -0.1620      0.3835
+browser     firefox          yes        1      0.5257      0.1237         18.07        <.0001                       1.692      0.2833      0.7680
+channels    business         yes        1      0.6035      0.0703         73.72        <.0001                       1.829      0.4657      0.7413
+channels    entertainment    yes        1     -0.2384      0.0593         16.17        <.0001                       0.788     -0.3546     -0.1222
+channels    lifestyle        yes        1     -0.6610      0.1078         37.59        <.0001                       0.516     -0.8723     -0.4497
+channels    news             yes        1      0.2553      0.0734         12.09        0.0005                       1.291      0.1114      0.3992
+contentSize                  yes        1    5.245E-7    2.149E-7          5.96        0.0146          0.0304       1.000    1.033E-7    9.456E-7
+gender      Female           yes        1     -0.2485      0.0420         34.95        <.0001                       0.780     -0.3310     -0.1661
+imageLevel  blurred          yes        1     -2.4044      0.1378        304.32        <.0001                       0.090     -2.6745     -2.1342
+imageLevel  high             yes        1      4.0250      0.2477        264.10        <.0001                      55.980      3.5396      4.5104
+imageLevel  low              yes        1      0.1085      0.2126          0.26        0.6097                       1.115     -0.3081      0.5252
+isWeekend   no               yes        1     -0.4970      0.0224        490.30        <.0001                       0.608     -0.5410     -0.4530
+readTime                     yes        1      0.3318      0.0196        285.46        <.0001          0.2267       1.393      0.2933      0.3703
+relevancy   maybe            yes        1      1.3152      0.0683        370.72        <.0001                       3.725      1.1813      1.4490
+relevancy   no               yes        1      0.4185      0.0514         66.38        <.0001                       1.520      0.3178      0.5192
+titleCount                   yes        1      0.2560      0.0184        192.79        <.0001          0.1975       1.292      0.2198      0.2921
+videos      high             yes        1     -0.5267      0.0324        263.51        <.0001                       0.591     -0.5902     -0.4631
+videos      low              yes        1      0.5448      0.0419        168.86        <.0001                       1.724      0.4626      0.6269
+ 
+ 
+                      Odds Ratio Estimates
+ 
+                                              is           Point
+Effect                                        Shared    Estimate
+ 
+browser     chrome vs opera                   yes          0.220
+browser     edge vs opera                     yes          0.721
+browser     firefox vs opera                  yes          1.092
+channels    business vs sports                yes          1.756
+channels    entertainment vs sports           yes          0.757
+channels    lifestyle vs sports               yes          0.496
+channels    news vs sports                    yes          1.240
+contentSize                                   yes          1.000
+gender      Female vs Male                    yes          0.608
+imageLevel  blurred vs noImage                yes          0.509
+imageLevel  high vs noImage                   yes        315.502
+imageLevel  low vs noImage                    yes          6.282
+isWeekend   no vs yes                         yes          0.370
+readTime                                      yes          1.393
+relevancy   maybe vs yes                      yes         21.091
+relevancy   no vs yes                         yes          8.604
+titleCount                                    yes          1.292
+videos      high vs medium                    yes          0.601
+videos      low vs medium                     yes          1.756
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Fit Statistics
+ 
+Target=isShared Target Label=' '
+ 
+   Fit
+Statistics    Statistics Label                     Train    Validation
+ 
+ _AIC_        Akaike's Information Criterion    12903.34          .
+ _ASE_        Average Squared Error                 0.11         0.11
+ _AVERR_      Average Error Function                0.34         0.35
+ _DFE_        Degrees of Freedom for Error      18694.00          .
+ _DFM_        Model Degrees of Freedom             20.00          .
+ _DFT_        Total Degrees of Freedom          18714.00          .
+ _DIV_        Divisor for ASE                   37428.00     16046.00
+ _ERR_        Error Function                    12863.34      5584.19
+ _FPE_        Final Prediction Error                0.11          .
+ _MAX_        Maximum Absolute Error                1.00         1.00
+ _MSE_        Mean Square Error                     0.11         0.11
+ _NOBS_       Sum of Frequencies                18714.00      8023.00
+ _NW_         Number of Estimate Weights           20.00          .
+ _RASE_       Root Average Sum of Squares           0.33         0.34
+ _RFPE_       Root Final Prediction Error           0.33          .
+ _RMSE_       Root Mean Squared Error               0.33         0.34
+ _SBC_        Schwarz's Bayesian Criterion      13060.08          .
+ _SSE_        Sum of Squared Errors              4152.11      1800.86
+ _SUMW_       Sum of Case Weights Times Freq    37428.00     16046.00
+ _MISC_       Misclassification Rate                0.16         0.17
+ 
+ 
+ 
+ 
+Classification Table
+ 
+Data Role=TRAIN Target Variable=isShared Target Label=' '
+ 
+                       Target        Outcome     Frequency       Total
+Target    Outcome    Percentage    Percentage      Count      Percentage
+ 
+ NO         NO         86.2375       93.4134       13303        71.0858
+ YES        NO         13.7625       47.4626        2123        11.3444
+ NO         YES        28.5280        6.5866         938         5.0123
+ YES        YES        71.4720       52.5374        2350        12.5574
+ 
+ 
+Data Role=VALIDATE Target Variable=isShared Target Label=' '
+ 
+                       Target        Outcome     Frequency       Total
+Target    Outcome    Percentage    Percentage      Count      Percentage
+ 
+ NO         NO         85.9359       93.4961        5707        71.1330
+ YES        NO         14.0641       48.6712         934        11.6415
+ NO         YES        28.7265        6.5039         397         4.9483
+ YES        YES        71.2735       51.3288         985        12.2772
+ 
+ 
+ 
+ 
+Event Classification Table
+ 
+Data Role=TRAIN Target=isShared Target Label=' '
+ 
+  False       True        False       True
+Negative    Negative    Positive    Positive
+ 
+  2123        13303        938        2350
+ 
+ 
+Data Role=VALIDATE Target=isShared Target Label=' '
+ 
+  False       True        False       True
+Negative    Negative    Positive    Positive
+ 
+   934        5707         397         985
+ 
+ 
+ 
+ 
+Assessment Score Rankings
+ 
+Data Role=TRAIN Target Variable=isShared Target Label=' '
+ 
+                                                                                           Mean
+                               Cumulative        %       Cumulative      Number of      Posterior
+Depth       Gain      Lift        Lift       Response    % Response    Observations    Probability
+ 
+   5     299.157    3.99157      3.99157      95.4060      95.4060          936          0.96833
+  10     247.977    2.96797      3.47977      70.9402      83.1731          936          0.72650
+  15     211.548    2.38689      3.11548      57.0513      74.4658          936          0.59350
+  20     186.705    2.12097      2.86705      50.6952      68.5279          935          0.50166
+  25     163.598    1.71195      2.63598      40.9188      63.0049          936          0.42094
+  30     144.395    1.48399      2.44395      35.4701      58.4150          936          0.34993
+  35     129.053    1.36923      2.29053      32.7273      54.7481          935          0.28854
+  40     113.436    1.04147      2.13436      24.8932      51.0152          936          0.23805
+  45      99.303    0.86268      1.99303      20.6197      47.6371          936          0.19072
+  50      86.228    0.68462      1.86228      16.3636      44.5121          935          0.14211
+  55      73.765    0.49168      1.73765      11.7521      41.5331          936          0.09652
+  60      61.516    0.26819      1.61516       6.4103      38.6054          936          0.06726
+  65      50.877    0.23243      1.50877       5.5556      36.0625          936          0.05003
+  70      41.194    0.15214      1.41194       3.6364      33.7481          935          0.03822
+  75      32.196    0.06258      1.32196       1.4957      31.5973          936          0.03020
+  80      24.379    0.07152      1.24379       1.7094      29.7288          936          0.02446
+  85      17.304    0.04027      1.17304       0.9626      28.0380          935          0.01976
+  90      11.009    0.04023      1.11009       0.9615      26.5333          936          0.01553
+  95       5.259    0.01788      1.05259       0.4274      25.1589          936          0.01134
+ 100       0.000    0.00000      1.00000       0.0000      23.9019          935          0.00631
+ 
+ 
+Data Role=VALIDATE Target Variable=isShared Target Label=' '
+ 
+                                                                                           Mean
+                               Cumulative        %       Cumulative      Number of      Posterior
+Depth       Gain      Lift        Lift       Response    % Response    Observations    Probability
+ 
+   5     298.322    3.98322      3.98322      95.2736      95.2736          402          0.97004
+  10     245.191    2.91928      3.45191      69.8254      82.5654          401          0.73405
+  15     212.520    2.47096      3.12520      59.1022      74.7508          401          0.59570
+  20     183.150    1.94966      2.83150      46.6334      67.7259          401          0.49686
+  25     160.520    1.69944      2.60520      40.6484      62.3131          401          0.41560
+  30     142.304    1.51177      2.42304      36.1596      57.9560          401          0.34525
+  35     127.869    1.41441      2.27869      33.8308      54.5034          402          0.28270
+  40     114.511    1.20942      2.14511      28.9277      51.3084          401          0.23163
+  45      99.374    0.78195      1.99374      18.7032      47.6876          401          0.18585
+  50      86.428    0.69854      1.86428      16.7082      44.5912          401          0.13526
+  55      72.993    0.38576      1.72993       9.2269      41.3777          401          0.09361
+  60      61.536    0.35448      1.61536       8.4788      38.6373          401          0.06649
+  65      50.798    0.21895      1.50798       5.2369      36.0690          401          0.04970
+  70      40.825    0.11440      1.40825       2.7363      33.6835          402          0.03821
+  75      32.205    0.11469      1.32205       2.7431      31.6218          401          0.03037
+  80      24.207    0.04170      1.24207       0.9975      29.7087          401          0.02448
+  85      17.149    0.04170      1.17149       0.9975      28.0205          401          0.01982
+  90      10.875    0.04170      1.10875       0.9975      26.5199          401          0.01545
+  95       5.206    0.03128      1.05206       0.7481      25.1640          401          0.01146
+ 100       0.000    0.01043      1.00000       0.2494      23.9187          401          0.00629
+ 
+ 
+ 
+ 
+Assessment Score Distribution
+ 
+Data Role=TRAIN Target Variable=isShared Target Label=' '
+ 
+ Posterior     Number                     Mean
+Probability      of      Number of     Posterior
+   Range       Events    Nonevents    Probability    Percentage
+ 
+ 0.95-1.00       728           7        0.99277         3.9275
+ 0.90-0.95        57           6        0.92649         0.3366
+ 0.85-0.90        64          16        0.86938         0.4275
+ 0.80-0.85       121          39        0.82322         0.8550
+ 0.75-0.80       176          47        0.77171         1.1916
+ 0.70-0.75       191          72        0.72393         1.4054
+ 0.65-0.70       225         129        0.67361         1.8916
+ 0.60-0.65       234         140        0.62598         1.9985
+ 0.55-0.60       276         250        0.57231         2.8107
+ 0.50-0.55       278         232        0.52296         2.7252
+ 0.45-0.50       266         296        0.47580         3.0031
+ 0.40-0.45       254         361        0.42547         3.2863
+ 0.35-0.40       251         434        0.37478         3.6604
+ 0.30-0.35       247         483        0.32413         3.9008
+ 0.25-0.30       286         639        0.27393         4.9428
+ 0.20-0.25       233         718        0.22442         5.0818
+ 0.15-0.20       185         791        0.17609         5.2153
+ 0.10-0.15       136         886        0.12305         5.4612
+ 0.05-0.10       162        1800        0.06972        10.4841
+ 0.00-0.05       103        6895        0.02247        37.3945
+ 
+ 
+Data Role=VALIDATE Target Variable=isShared Target Label=' '
+ 
+ Posterior     Number                     Mean
+Probability      of      Number of     Posterior
+   Range       Events    Nonevents    Probability    Percentage
+ 
+ 0.95-1.00       313           4        0.99324         3.9511
+ 0.90-0.95        26           2        0.92385         0.3490
+ 0.85-0.90        26          11        0.87578         0.4612
+ 0.80-0.85        57          19        0.82298         0.9473
+ 0.75-0.80        86          20        0.77443         1.3212
+ 0.70-0.75        73          30        0.72565         1.2838
+ 0.65-0.70        89          61        0.67292         1.8696
+ 0.60-0.65        94          63        0.62692         1.9569
+ 0.55-0.60       120          83        0.57439         2.5302
+ 0.50-0.55       101         104        0.52245         2.5552
+ 0.45-0.50       113         137        0.47636         3.1160
+ 0.40-0.45       101         141        0.42574         3.0163
+ 0.35-0.40       117         183        0.37639         3.7392
+ 0.30-0.35       106         200        0.32440         3.8140
+ 0.25-0.30       124         266        0.27379         4.8610
+ 0.20-0.25       119         298        0.22374         5.1976
+ 0.15-0.20        73         326        0.17623         4.9732
+ 0.10-0.15        59         394        0.12351         5.6463
+ 0.05-0.10        76         786        0.07052        10.7441
+ 0.00-0.05        46        2976        0.02269        37.6667
